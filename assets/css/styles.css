@@ -776,6 +776,50 @@ textarea {
   gap: 0.45rem;
 }
 
+.footer-social {
+  margin: 1rem 0 0;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.instagram-icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  border-radius: 7px;
+  background:
+    radial-gradient(circle at 30% 105%, #feda75 0 18%, #fa7e1e 32%, transparent 45%),
+    radial-gradient(circle at 70% 0%, #515bd4 0 18%, transparent 38%),
+    linear-gradient(135deg, #feda75, #fa7e1e 28%, #d62976 58%, #962fbf 78%, #4f5bd5);
+}
+
+.instagram-icon::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 2px solid var(--white);
+  border-radius: 6px;
+}
+
+.instagram-icon::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 6px -5px 0 -2px var(--white);
+}
+
 .footer-grid > :last-child {
   justify-self: end;
   min-width: 180px;
