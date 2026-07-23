@@ -95,6 +95,32 @@ a {
   color: var(--gold);
 }
 
+.topbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.topbar__icon {
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--gold);
+}
+
+.topbar__icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .nav__inner {
   min-height: 82px;
   display: flex;
