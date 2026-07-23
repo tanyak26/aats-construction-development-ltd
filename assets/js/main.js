@@ -17,6 +17,7 @@ const enquiryForm = document.querySelector("[data-enquiry-form]");
 
 if (enquiryForm) {
   const status = enquiryForm.querySelector("[data-form-status]");
+  const recipient = "info@aatsconstruction.co.uk";
 
   enquiryForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -49,10 +50,15 @@ if (enquiryForm) {
       "Thank you.",
     ].join("\n");
 
-    window.location.href = `mailto:info@aatsconstruction.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailLink = document.createElement("a");
+    mailLink.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    mailLink.style.display = "none";
+    document.body.appendChild(mailLink);
+    mailLink.click();
+    mailLink.remove();
 
     if (status) {
-      status.textContent = "Your email app should now open with the enquiry prepared. Please press send in your email app.";
+      status.textContent = `Your email app should now open with the enquiry prepared. Please check the To field says ${recipient}, then press send.`;
       status.className = "form-status is-success";
     }
   });
