@@ -49,6 +49,12 @@ function sendFile(res, filePath) {
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  const cleanPath = decodeURIComponent(url.pathname).replace(/^\/+/, "");
+
+  if (/^google[a-z0-9]+\.html$/i.test(cleanPath)) {
+    sendFile(res, path.resolve(root, cleanPath));
+    return;
+  }
 
   if (url.pathname.endsWith(".html")) {
     const cleanUrl = url.pathname === "/index.html" ? "/" : url.pathname.replace(/\.html$/, "");
@@ -60,7 +66,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const cleanPath = decodeURIComponent(url.pathname).replace(/^\/+/, "");
   const requestedPath = routes.get(cleanPath) || cleanPath || "index.html";
   const filePath = path.resolve(root, requestedPath);
 
