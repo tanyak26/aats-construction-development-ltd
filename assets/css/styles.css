@@ -458,6 +458,18 @@ h3 {
   color: rgba(255, 255, 255, 0.76);
 }
 
+.support-note {
+  margin: 1.6rem 0 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.support-note a {
+  color: var(--green);
+  font-weight: 800;
+}
+
 .activity-card {
   display: grid;
   grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
