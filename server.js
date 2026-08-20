@@ -4,6 +4,7 @@ const path = require("path");
 
 const root = __dirname;
 const port = Number(process.env.PORT || 3300);
+const host = process.env.HOST || "0.0.0.0";
 
 const routes = new Map([
   ["", "index.html"],
@@ -90,6 +91,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`AATS Construction and Development site running at http://127.0.0.1:${port}`);
+server.listen(port, host, () => {
+  console.log(`AATS Construction and Development site running at http://${host}:${port}`);
 });
